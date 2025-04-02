@@ -33,6 +33,8 @@ class ProdutosController extends Controller
       {
         if ($request->method() == "POST") {
           $data = ($request->all());
+          $componentes = new Componentes();
+          $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
           Produto::create($data);
 
           return redirect()->route('produto.index');
