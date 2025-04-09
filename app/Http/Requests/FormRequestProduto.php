@@ -14,13 +14,12 @@ class FormRequestProduto extends FormRequest
     public function rules(): array
     {
         $request = [];
-        if ($this->method() == "POST"){
+        if ($this->method() == "POST" || $this->method() == "PUT") {  // Corrigido o operador || aqui
             $request = [
-            'nome' => 'required',
-            'valor' => 'required'
-
-        ];
-    }
-    return $request; 
+                'nome'  => 'required',
+                'valor' => 'required',
+            ];
+        }
+        return $request; 
     }
 }

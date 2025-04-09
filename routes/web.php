@@ -22,8 +22,12 @@ Route::get('/', function () {
  
 Route::prefix('produtos')->group(function () {
     Route::get('/', [ProdutosController::class, 'index'])->name('produto.index');
+    //Cadastro Create
     Route::get('/cadastrarProduto', [ProdutosController::class, 'cadastrarProduto'])->name('cadastrar.produto');
     Route::post('/cadastrarProduto', [ProdutosController::class, 'cadastrarProduto'])->name('cadastrar.produto');
+    //Atualiza Update
+    Route::get('/atualizarProduto/{id}', [ProdutosController::class, 'atualizarproduto'])->name('atualizar.produto');
+    Route::post('/atualizarProduto/{id}', [ProdutosController::class, 'atualizarprodutoo'])->name('atualizar.produto');
 
     
     Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
